@@ -1,0 +1,36 @@
+version: '3'
+services:
+   php:
+      build: docker/php
+      expose:
+         - '9000'
+      depends_on:
+         - db
+      volumes:
+         - ./app:/var/www/html/symfony:cached
+         - ./dockerlive/logs:/var/log
+
+   nginx:
+      build: docker/nginx
+      restart: always
+      expose:
+         - '80'
+      ports:
+         - '85:80'
+      depends_on:
+         - php
+         - db
+      volumes:
+         - ./app:/var/www/html/symfony:cached
+         - ./dockerlive/logs:/var/log/nginx
+
+   db:
+      build: docker/database
+      restart: on-failure
+      ports:
+         - "3306:3306"
+      volumes:
+         - ./dockerlive/mysql:/var/lib/mysql
+      environment:
+         MYSQL_ROOT_PASSWORD: admin
+         MYSQL_DATABASE: pass
