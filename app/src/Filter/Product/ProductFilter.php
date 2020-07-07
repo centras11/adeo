@@ -12,22 +12,22 @@ use App\Filter\FilterInterface;
 class ProductFilter implements FilterInterface
 {
     /**
-     * @var WeatherCondition|null
+     * @var string|null
      */
     private $weatherCondition;
 
     /**
-     * @return WeatherCondition|null
+     * @return string|null
      */
-    public function getWeatherCondition(): ?WeatherCondition
+    public function getWeatherCondition(): ?string
     {
         return $this->weatherCondition;
     }
 
     /**
-     * @param WeatherCondition|null $weatherCondition
+     * @param string|null $weatherCondition
      */
-    public function setWeatherCondition(?WeatherCondition $weatherCondition): void
+    public function setWeatherCondition(?string $weatherCondition): void
     {
         $this->weatherCondition = $weatherCondition;
     }

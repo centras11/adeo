@@ -2,8 +2,9 @@
 
 namespace App\Entity\Product;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\{ArrayCollection, Collection};
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Entity\BaseEntityInterface;
 use App\Entity\Traits\IdTrait;
 
@@ -21,6 +22,8 @@ class Product implements BaseEntityInterface
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=100)
+     *
+     * @Groups("recommendation")
      */
     private $title;
 
@@ -28,6 +31,8 @@ class Product implements BaseEntityInterface
      * @var string
      *
      * @ORM\Column(name="sku", type="string", length=10)
+     *
+     * @Groups("recommendation")
      */
     private $sku;
 
@@ -75,9 +80,9 @@ class Product implements BaseEntityInterface
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getWeatherConditions(): ArrayCollection
+    public function getWeatherConditions(): Collection
     {
         return $this->weatherConditions;
     }

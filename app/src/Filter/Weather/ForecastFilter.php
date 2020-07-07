@@ -3,6 +3,7 @@
 namespace App\Filter\Weather;
 
 use DateTime;
+use DateTimeZone;
 use App\Entity\Weather\City;
 use App\Filter\FilterInterface;
 
@@ -21,6 +22,11 @@ class ForecastFilter implements FilterInterface
      * @var DateTime|null
      */
     private $time;
+
+    /**
+     * @var DateTime|null
+     */
+    private $currentTime;
 
     /**
      * @return City|null
@@ -52,5 +58,21 @@ class ForecastFilter implements FilterInterface
     public function setTime(?DateTime $time): void
     {
         $this->time = $time;
+    }
+
+    /**
+     * @return DateTime|null
+     */
+    public function getCurrentTime(): ?DateTime
+    {
+        return $this->currentTime;
+    }
+
+    /**
+     * @param DateTime|null $currentTime
+     */
+    public function setCurrentTime(?DateTime $currentTime): void
+    {
+        $this->currentTime = $currentTime;
     }
 }

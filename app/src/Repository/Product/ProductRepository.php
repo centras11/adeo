@@ -51,7 +51,7 @@ class ProductRepository extends Repository
 
         if (null !== $filter->getWeatherCondition()) {
             $builder
-                ->andWhere('p.weatherConditions = :weatherCondition')
+                ->andWhere('wc.title = :weatherCondition')
                 ->setParameter('weatherCondition', $filter->getWeatherCondition());
         }
 

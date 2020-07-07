@@ -62,6 +62,13 @@ class ForecastRepository extends Repository
                 ->setParameter('forecastTimeUtc', $filter->getTime());
         }
 
+        if (null !== $filter->getCurrentTime()) {
+            $builder
+                ->andWhere('f.forecastTimeUtc <= :currentTime')
+                ->setParameter('currentTime', $filter->getCurrentTime())
+                ->orderBy('f.forecastTimeUtc', 'DESC');
+        }
+
         return $builder;
     }
 

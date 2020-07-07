@@ -2,6 +2,7 @@
 
 namespace App\Service\Weather;
 
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use App\Entity\Weather\{City, Forecast};
@@ -118,5 +119,19 @@ class ForecastManager extends Manager
         }
 
         return true;
+    }
+
+    /**
+     * @param City $city
+     *
+     * @return Forecast|null
+     * @throws NonUniqueResultException
+     */
+    public function getCurrentForecast(City $city): ?Forecast
+    {
+        $this->forecastFilter->setCity($city);
+        $this->forecastFilter->setCurrentTime(new \DateTime('now', new \DateTimeZone('UTC')));
+
+        return $this->forecastRepository->findOneByFilter($this->forecastFilter);
     }
 }
