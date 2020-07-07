@@ -33,7 +33,6 @@ class CityManager
         return $this->getRepository()->findAll();
     }
 
-
     /**
      * @return ObjectRepository
      */

@@ -1,0 +1,29 @@
+# About
+
+This is task for job proposal from Adeo Web
+
+## Usage
+
+To start using the app run fixtures
+To get forecast data run console command
+
+```bash
+php bin/console app:forecast
+```
+
+To access recommendations use this path:
+
+```bash
+/product/{city}
+```
+
+After loading fixtures two cities are available (Vilnius and Kaunas).
+
+## Todo
+```bash
+* Move WeatherCondition to Forecast namespace
+* Catch exceptions and output corresponding error in json
+* Cover Business logic with unit tests
+* For meteo.lt endpoint use concurrent requests
+```
+
