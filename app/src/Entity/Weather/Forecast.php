@@ -11,7 +11,7 @@ use App\Entity\Traits\IdTrait;
  * @ORM\Table(
  *     name="weather_forecast",
  *     indexes = {
- *          @ORM\Index(name="forecast_time_city_index", columns={"forecas_time", "city"}),
+ *          @ORM\Index(name="forecast_time_city_index", columns={"forecast_time_utc", "city_id"}),
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\Weather\ForecastRepository")
@@ -30,7 +30,7 @@ class Forecast implements BaseEntityInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="condition_code", type="string", length=20. nulable=true)
+     * @ORM\Column(name="condition_code", type="string", length=20, nullable=true)
      */
     private $conditionCode;
 

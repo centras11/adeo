@@ -1,0 +1,10 @@
+parameters:
+   adeo_log_dir: "%kernel.logs_dir%/%kernel.environment%"
+
+monolog:
+    channels: ['cli']
+    handlers:
+       cli:
+          type: stream
+          path: "%adeo_log_dir%/cli.log"
+          channels: ['cli']

@@ -2,6 +2,8 @@
 
 namespace App\Filter\Weather;
 
+use DateTime;
+use App\Entity\Weather\City;
 use App\Filter\FilterInterface;
 
 /**
@@ -11,43 +13,43 @@ use App\Filter\FilterInterface;
 class ForecastFilter implements FilterInterface
 {
     /**
-     * @var string|null
+     * @var City|null
      */
     private $city;
 
     /**
-     * @var string|null
+     * @var DateTime|null
      */
     private $time;
 
     /**
-     * @return string|null
+     * @return City|null
      */
-    public function getCity(): ?string
+    public function getCity(): ?City
     {
         return $this->city;
     }
 
     /**
-     * @param string|null $city
+     * @param City|null $city
      */
-    public function setCity(?string $city): void
+    public function setCity(?City $city): void
     {
         $this->city = $city;
     }
 
     /**
-     * @return string|null
+     * @return DateTime|null
      */
-    public function getTime(): ?string
+    public function getTime(): ?DateTime
     {
         return $this->time;
     }
 
     /**
-     * @param string|null $time
+     * @param DateTime|null $time
      */
-    public function setTime(?string $time): void
+    public function setTime(?DateTime $time): void
     {
         $this->time = $time;
     }

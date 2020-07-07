@@ -32,7 +32,8 @@ class ForecastRepository extends Repository
         $builder = $this->getEntityManager()->createQueryBuilder();
         $builder
             ->select('f')
-            ->from(Forecast::class, 'f');
+            ->from(Forecast::class, 'f')
+            ->leftJoin('f.city', 'c');
 
         $this->applyFilter($filter, $builder);
 

@@ -9,12 +9,8 @@ use App\Entity\Traits\IdTrait;
 /**
  * @ORM\Table(
  *     name="weather_city",
- *     indexes = {
- *          @ORM\Index(name="data_visit_session_visitor_id_index", columns={"session_visitor_id"}),
- *          @ORM\Index(name="data_visit_url_id_index", columns={"url_id"}),
- *     }
  * )
- * @ORM\Entity(repositoryClass="App\Repository\Data\VisitRepository")
+ * @ORM\Entity()
  */
 class City implements BaseEntityInterface
 {

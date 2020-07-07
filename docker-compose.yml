@@ -3,7 +3,7 @@ services:
    php:
       build: docker/php
       expose:
-         - '9000'
+         - '9009'
       depends_on:
          - db
       volumes:
